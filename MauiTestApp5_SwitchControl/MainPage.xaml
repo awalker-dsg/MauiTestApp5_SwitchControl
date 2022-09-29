@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiTestApp5_SwitchControl.MainPage">
+
+    <ScrollView>
+        <StackLayout 
+            Orientation="Vertical" 
+            HorizontalOptions="FillAndExpand" 
+            VerticalOptions="FillAndExpand" >
+
+            <StackLayout 
+                Orientation="Vertical" 
+                HorizontalOptions="FillAndExpand" 
+                VerticalOptions="FillAndExpand" 
+                Margin="10,10,10,0">
+
+                <!-- It doesn't seem to matter whether the area above the Button 3 is a simple
+                     BoxView that's 300 units tall, or as here a BoxView that's 100 units followed
+                     by 2 buttons that are 100 units tall. Once the height of the controls above 
+                     Button 3 gets to around 300, the Button 3 no longer responds to clicks. -->
+
+                <BoxView HorizontalOptions="FillAndExpand" Color="LightGreen" HeightRequest="100"/> 
+
+                <Button Text="Button-1" HeightRequest="100" Clicked="OnButton1" Margin="0,5,0,0"/>
+                <Button Text="Button-2" HeightRequest="100" Clicked="OnButton2" Margin="0,5,0,0"/>
+                <Button Text="Button-3" HeightRequest="100" Clicked="OnButton3" Margin="0,5,0,0"/>
+
+            </StackLayout>
+            
+            <!-- Button 1 works if this StackLayout is removed. It doesn't seem to matter whether
+                 this StackLayout has a Button or a BoxView; if it exists and the controls 
+                 above Button 1 have a height of more than 300, then Button 1 does not work. --> 
+            <StackLayout VerticalOptions="EndAndExpand" Spacing="0">
+                <Button Text="Button-4" HeightRequest="100" Clicked="OnButton4" VerticalOptions="End" />
+            </StackLayout> 
+            
+        </StackLayout>
+    </ScrollView>
+
+</ContentPage>
